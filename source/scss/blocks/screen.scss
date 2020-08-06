@@ -347,7 +347,7 @@
   &.active{
     .game{
       .chat__footer{
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
       }
     }
