@@ -1,0 +1,13 @@
+body{
+  &.loaded{
+
+    .page-header__nav, .page-header__logo {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .screen__footer{
+      transform: translateY(0);
+    }
+  }
+}
