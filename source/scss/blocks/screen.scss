@@ -310,6 +310,15 @@
   }
 }
 
+.screen--intro{
+  &.active{
+    .intro__message {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 .screen--story {
   background-color: $c-dark;
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
@@ -354,6 +363,15 @@
 
     @media (max-width: $tablet) and (orientation: portrait) {
       opacity: 0;
+    }
+  }
+
+  &.active{
+    .game{
+      .chat__footer{
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
   }
 }
