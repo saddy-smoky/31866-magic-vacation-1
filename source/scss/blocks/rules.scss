@@ -219,7 +219,6 @@
     animation-play-state: paused;
     left: auto;
     right: -50%;
-    opacity: 0;
   }
 
   span {
@@ -230,12 +229,7 @@
     animation-delay: 0.25s;
   }
 
-  &.active {
-
-    &:before {
-      opacity: 1;
-    }
-
+  &.show-link {
     span, &:before {
       animation-play-state: running;
     }
@@ -243,6 +237,7 @@
 
   @keyframes rules-link-bg {
     0% {
+      opacity: 0;
       right: -20%;
       width: 40%;
     }

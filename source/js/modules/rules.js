@@ -1,10 +1,9 @@
 export default () => {
-  const rulesPage = document.querySelector(".screen--rules");
-  const rulesItems = rulesPage.querySelectorAll(".rules__item");
-  const lastRulesItem = rulesItems[rulesItems.length - 1];
-  const rulesLink = rulesPage.querySelector(".rules__link");
+  document.querySelector(".rules__item:last-child").onanimationend = () => {
+    document.querySelector(".rules__link").classList.add("show-link");
 
-  lastRulesItem.onanimationend = () => {
-    rulesLink.classList.add("active");
-  }
+    setTimeout(() => {
+      document.querySelector(".rules__link").classList.remove("show-link");
+    }, 1000);
+  };
 };
