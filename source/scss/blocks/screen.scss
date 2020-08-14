@@ -393,4 +393,13 @@
 
 .screen--rules {
   background-color: $c-dark;
+
+
+  &.active{
+    .rules__item{
+      &:before, p{
+        animation-play-state: running;
+      }
+    }
+  }
 }
