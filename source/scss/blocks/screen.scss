@@ -326,6 +326,12 @@
   background-size: cover;
   background-position: center;
 
+  &.active{
+    .slider__control{
+      animation-play-state: running;
+    }
+  }
+
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
