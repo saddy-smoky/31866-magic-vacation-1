@@ -64,7 +64,8 @@
     }
   }
 
-  &.swiper-slide-active, &.swiper-slide-next{
+  &.swiper-slide-active,
+  &.swiper-slide-next {
     .slider__item-text {
       transition-delay: 0.2s;
       opacity: 1;
@@ -231,6 +232,44 @@
   &.swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &--prev {
+    animation-name: slider-control-left;
+    animation-duration: 0.7s;
+    animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-fill-mode: both;
+  }
+
+  &--next {
+    animation-name: slider-control-right;
+    animation-duration: 0.7s;
+    animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-fill-mode: both;
+  }
+
+  @keyframes slider-control-left {
+    from {
+      opacity: 0;
+      transform: translateX(-100%) rotate(-180deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slider-control-right {
+    from {
+      opacity: 0;
+      transform: translateX(100%) rotate(180deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
