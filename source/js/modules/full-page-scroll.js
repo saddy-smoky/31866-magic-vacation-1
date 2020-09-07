@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import AnimateLetters from "./animate-letters";
 
 export default class FullPageScroll {
   constructor() {
@@ -10,6 +11,9 @@ export default class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+
+    this.introTitleAnimation = new AnimateLetters(`.intro__title`, 500, `active`, `transform`, 50);
+    this.introDatesAnimation = new AnimateLetters(`.intro__date`, 500, `active`, `transform`, 50);
   }
 
   init() {
@@ -31,6 +35,34 @@ export default class FullPageScroll {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
+
+    if (this.activeScreen === 0) {
+      this.animateIntroTitleLetters()
+      this.animateIntroDatesLetters()
+    } else {
+      this.destroyAnimateIntroTitleLetters()
+      this.destroyAnimateIntroDatesLetters()
+    }
+  }
+
+  destroyAnimateIntroTitleLetters() {
+    this.introTitleAnimation.destroyAnimation();
+  }
+
+  destroyAnimateIntroDatesLetters() {
+    this.introDatesAnimation.destroyAnimation();
+  }
+
+  animateIntroTitleLetters() {
+    setTimeout(() => {
+      this.introTitleAnimation.runAnimation();
+    }, 100);
+  }
+
+  animateIntroDatesLetters() {
+    setTimeout(() => {
+      this.introDatesAnimation.runAnimation();
+    }, 100);
   }
 
   changePageDisplay() {
